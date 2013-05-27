@@ -1,0 +1,20 @@
+digraph {
+    "fae63ced-4f8e-42ff-b733-5ebaa90948be" [shape=box, label="@Extend\nextend"];
+    "ed541e0b-288d-47bf-a6a9-ad6a1277d8bc" [shape=box, label="@Branch\nGroupingExtendSampleOperator.balance"];
+    "e1d18d8e-cd1b-4de8-96b8-b868ed934c97" [shape=point];
+    "a58909c9-230b-4daa-927c-4933e4d60a3d" [shape=invhouse, label="originaldata"];
+    "1b5627b9-e9a3-46fb-8e03-65ccef83ada1" [shape=invhouse, label="result"];
+    "06eaf2f5-bd51-4c23-9cb1-71683b9ea268" [shape=point];
+    "b77cbd5d-093f-43cb-b65e-ffc279d4501f" [shape=box, label="@MasterJoin\nGroupingExtendSampleOperator.join4Mid"];
+    "76ecb76c-69a0-42f2-9fa9-782adf5221f8" [shape=point];
+    "f81f9bdb-4beb-44c9-854d-13704f265ad5" [shape=box, label="@Convert\nGroupingExtendSampleOperator.convertedResult"];
+    "fae63ced-4f8e-42ff-b733-5ebaa90948be" -> "f81f9bdb-4beb-44c9-854d-13704f265ad5" [label="out>pre"];
+    "ed541e0b-288d-47bf-a6a9-ad6a1277d8bc" -> "b77cbd5d-093f-43cb-b65e-ffc279d4501f" [label="before>t11"];
+    "ed541e0b-288d-47bf-a6a9-ad6a1277d8bc" -> "b77cbd5d-093f-43cb-b65e-ffc279d4501f" [label="current>t12"];
+    "ed541e0b-288d-47bf-a6a9-ad6a1277d8bc" -> "76ecb76c-69a0-42f2-9fa9-782adf5221f8" [label="old>in"];
+    "a58909c9-230b-4daa-927c-4933e4d60a3d" -> "ed541e0b-288d-47bf-a6a9-ad6a1277d8bc" [label="port>originaldata"];
+    "b77cbd5d-093f-43cb-b65e-ffc279d4501f" -> "fae63ced-4f8e-42ff-b733-5ebaa90948be" [label="joined>in"];
+    "b77cbd5d-093f-43cb-b65e-ffc279d4501f" -> "e1d18d8e-cd1b-4de8-96b8-b868ed934c97" [label="missed>in"];
+    "f81f9bdb-4beb-44c9-854d-13704f265ad5" -> "06eaf2f5-bd51-4c23-9cb1-71683b9ea268" [label="original>in"];
+    "f81f9bdb-4beb-44c9-854d-13704f265ad5" -> "1b5627b9-e9a3-46fb-8e03-65ccef83ada1" [label="out>port"];
+}

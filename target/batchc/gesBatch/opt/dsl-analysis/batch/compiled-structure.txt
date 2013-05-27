@@ -1,0 +1,21 @@
+batch: gesBatch
+flow: TheGroupingExtendSampleJobFlow
+    input:
+        originaldata (ironpeace.jobflow.OriginaldataFromCsv)
+    output:
+        result (ironpeace.jobflow.ResultToCsv)
+    stages:
+        prologue:
+        main:
+            stage: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageClient
+                mapper: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageMapper1
+                    fragment: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.MapFragment1
+                        operator: ironpeace.operator.GroupingExtendSampleOperator#balance([class ironpeace.modelgen.dmdl.model.OriginalData])[]
+                reducer: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageReducer
+                    fragment: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.ReduceFragment2
+                        operator: ironpeace.operator.GroupingExtendSampleOperator#join4Mid([class ironpeace.modelgen.dmdl.model.OriginalData, class ironpeace.modelgen.dmdl.model.OriginalData])[]
+                    fragment: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.MapFragment3
+                        operator: com.asakusafw.vocabulary.flow.util.CoreOperatorFactory$Extend#toString([])[]
+                        operator: ironpeace.operator.GroupingExtendSampleOperator#convertedResult([class ironpeace.modelgen.dmdl.model.PreResult])[]
+        epilogue:
+            stage: ironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.directio.epilogue.StageClient

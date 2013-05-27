@@ -1,0 +1,20 @@
+digraph {
+    "d8ee4a52-437b-4b33-8b39-16295840fb39" [shape=box, label="@Branch\nGroupingExtendSampleOperator.balance"];
+    "4dd4050f-38ad-45dc-b26d-d4060c53e697" [shape=box, label="@Extend\nextend"];
+    "5d0faf63-fbf7-490a-8f68-3e270b8a6719" [shape=invhouse, label="result"];
+    "0a2f8714-1693-4dd9-a110-3d1e6a38b932" [shape=point];
+    "6a5cd99d-b220-438b-9910-0f068f1f7343" [shape=box, label="@MasterJoin\nGroupingExtendSampleOperator.join4Mid"];
+    "c07f4a2e-8a0d-497a-8c27-1a2e22b8397f" [shape=point];
+    "5653c3b6-f5b8-4380-981d-6a6dd91bd1ce" [shape=point];
+    "a8231982-3ab2-4020-8b50-78bbc59da419" [shape=box, label="@Convert\nGroupingExtendSampleOperator.convertedResult"];
+    "294cbb63-9fb0-433f-9563-72d0fd1e8b7c" [shape=invhouse, label="originaldata"];
+    "d8ee4a52-437b-4b33-8b39-16295840fb39" -> "6a5cd99d-b220-438b-9910-0f068f1f7343" [label="before>t11"];
+    "d8ee4a52-437b-4b33-8b39-16295840fb39" -> "6a5cd99d-b220-438b-9910-0f068f1f7343" [label="current>t12"];
+    "d8ee4a52-437b-4b33-8b39-16295840fb39" -> "0a2f8714-1693-4dd9-a110-3d1e6a38b932" [label="old>in"];
+    "4dd4050f-38ad-45dc-b26d-d4060c53e697" -> "a8231982-3ab2-4020-8b50-78bbc59da419" [label="out>pre"];
+    "6a5cd99d-b220-438b-9910-0f068f1f7343" -> "4dd4050f-38ad-45dc-b26d-d4060c53e697" [label="joined>in"];
+    "6a5cd99d-b220-438b-9910-0f068f1f7343" -> "c07f4a2e-8a0d-497a-8c27-1a2e22b8397f" [label="missed>in"];
+    "a8231982-3ab2-4020-8b50-78bbc59da419" -> "5653c3b6-f5b8-4380-981d-6a6dd91bd1ce" [label="original>in"];
+    "a8231982-3ab2-4020-8b50-78bbc59da419" -> "5d0faf63-fbf7-490a-8f68-3e270b8a6719" [label="out>port"];
+    "294cbb63-9fb0-433f-9563-72d0fd1e8b7c" -> "d8ee4a52-437b-4b33-8b39-16295840fb39" [label="port>originaldata"];
+}

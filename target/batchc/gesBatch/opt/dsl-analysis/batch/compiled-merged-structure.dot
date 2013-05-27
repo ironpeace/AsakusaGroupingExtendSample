@@ -1,0 +1,24 @@
+digraph {
+    rankdir = LR;
+    "65eb88a2-a25e-424b-ab32-94a4706337a7" [shape=box, label="Batch\ngesBatch"];
+    "16293efd-360a-4d2d-bdb5-e228c8d94fea" [shape=box, label="JobFlow\nTheGroupingExtendSampleJobFlow"];
+    "03060be3-33da-49b2-9104-f7fdb1cd8a06" [shape=box, label="Stage\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageClient"];
+    "d57cef93-0ebf-46f8-aca9-e8734082e80c" [shape=box, label="Mapper\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageMapper1"];
+    "03060be3-33da-49b2-9104-f7fdb1cd8a06" -> "d57cef93-0ebf-46f8-aca9-e8734082e80c";
+    "3f8fd554-f1c5-41fe-accc-20cbb18b531b" [shape=box, label="Fragment\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.MapFragment1"];
+    "c3dc31ba-eae7-4ce7-a891-c89276c83de0" [shape=box, label="Branch\nGroupingExtendSampleOperator#balance"];
+    "3f8fd554-f1c5-41fe-accc-20cbb18b531b" -> "c3dc31ba-eae7-4ce7-a891-c89276c83de0";
+    "d57cef93-0ebf-46f8-aca9-e8734082e80c" -> "3f8fd554-f1c5-41fe-accc-20cbb18b531b";
+    "609bec34-0d66-4d8f-bf54-0ae6ac71e8d0" [shape=box, label="Reducer\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.StageReducer"];
+    "03060be3-33da-49b2-9104-f7fdb1cd8a06" -> "609bec34-0d66-4d8f-bf54-0ae6ac71e8d0";
+    "ce0e7e70-5dde-430a-a61d-679c1b0b00e4" [shape=box, label="Fragment\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.ReduceFragment2"];
+    "712d509d-13c1-42ff-ac6e-c4fcd5c16661" [shape=box, label="MasterJoin\nGroupingExtendSampleOperator#join4Mid"];
+    "ce0e7e70-5dde-430a-a61d-679c1b0b00e4" -> "712d509d-13c1-42ff-ac6e-c4fcd5c16661";
+    "609bec34-0d66-4d8f-bf54-0ae6ac71e8d0" -> "ce0e7e70-5dde-430a-a61d-679c1b0b00e4";
+    "42a96113-0eb8-43b2-9590-98013fc0d507" [shape=box, label="Fragment\nironpeace.batchapp.gesBatch.theGroupingExtendSampleJobFlow.stage0001.MapFragment3"];
+    "8b910e71-1549-49a3-8891-2e75d52d574a" [shape=box, label="Convert\nGroupingExtendSampleOperator#convertedResult"];
+    "42a96113-0eb8-43b2-9590-98013fc0d507" -> "8b910e71-1549-49a3-8891-2e75d52d574a";
+    "609bec34-0d66-4d8f-bf54-0ae6ac71e8d0" -> "42a96113-0eb8-43b2-9590-98013fc0d507";
+    "16293efd-360a-4d2d-bdb5-e228c8d94fea" -> "03060be3-33da-49b2-9104-f7fdb1cd8a06";
+    "65eb88a2-a25e-424b-ab32-94a4706337a7" -> "16293efd-360a-4d2d-bdb5-e228c8d94fea";
+}

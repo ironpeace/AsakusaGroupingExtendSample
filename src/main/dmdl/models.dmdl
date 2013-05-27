@@ -1,0 +1,57 @@
+-- 入力CSVファイル形式
+
+"OriginalData"
+@directio.csv(has_header = TRUE)
+original_data = {
+    "keycode"
+    @directio.csv.field(name = "keycode")
+    keycode : INT;
+
+    "userid"
+    @directio.csv.field(name = "userid")
+    userid : TEXT;
+
+    "term"
+    @directio.csv.field(name = "term")
+    term : INT;
+
+    "data"
+    @directio.csv.field(name = "data")
+    data : LONG;
+};
+
+joined middata
+ = original_data -> {
+    userid -> userid;
+	data -> data0;
+} % userid
+ + original_data -> {
+    userid -> userid;
+	data -> data1;
+} % userid;
+
+pre_result = middata + {
+    "alert"
+    alert : TEXT;
+};
+
+"Result"
+@directio.csv(has_header = TRUE)
+result = {
+    "userid"
+    @directio.csv.field(name = "userid")
+    userid : TEXT;
+
+    "data0"
+    @directio.csv.field(name = "data0")
+    data0 : LONG;
+
+    "data1"
+    @directio.csv.field(name = "data1")
+    data1 : LONG;
+
+    "alert"
+    @directio.csv.field(name = "alert")
+    alert : TEXT;
+};
+
